@@ -41,6 +41,7 @@ function App() {
   ]);
 
   const [dataSource, setDataSource] = useState([]);
+  const [filteredData, setFiltred] = useState([]);
   
   useEffect(() => {
     const fetchData = async () => {
@@ -57,6 +58,7 @@ function App() {
           }));        
           
           setDataSource(data);
+          setFiltred(data);
       } catch (err) {
           console.error(err);
       } finally {
@@ -67,17 +69,36 @@ function App() {
     fetchData();
 }, []);
 
-  const onSearch = (value) => {
-    setSearchInput(value);
-    setColumns(prevState => {
-      return prevState.map(col => {
-        if(col.title === 'Title') {
-          return {...col, filteredValue: [value]};
-        }
-        return col;
-      });
-    });
-  }
+  // const onSearch = (value) => {
+  //   setSearchInput(value);
+  //   console.log(value);
+  //   const filteredData = dataSource.filter((data) => {
+  //     return data.title.toLowerCase().includes(searchInput.toLowerCase())
+  //   })
+  //   console.log(filteredData);
+    
+  // }
+
+
+  const handleFilter = (e) => {
+    console.log(e);
+    let searchInput = e.target.value;
+    setSearchInput(searchInput); //  set the value of the search in the setter searchInput 
+    const newFilter = dataSource.filter((value) => {
+      if (value.title && searchInput && typeof value.title === "string" && typeof searchInput === "string") {
+          return value.title.toLowerCase().includes(searchInput.toLowerCase());
+      }
+      return false;
+  });
+    // if the searchbar is empty we set all the data else we do the search with the filtered data
+    if (searchInput === "") {
+      setFiltred(dataSource);
+    } else {
+      setFiltred(newFilter);
+    }
+  };
+
+
   return (
     loading ? (
       'Loading'
@@ -88,12 +109,13 @@ function App() {
             placeholder="input search text"
             allowClear
             style={{ width: 200 }}
-            onSearch={value => setSearchInput(value)}
+            // onSearch={{(e) => handleFilter(e)}}
+            onChange={(e) => handleFilter(e)}
           />
           <CreateEvent />
         </div>
 
-        <Table loading={loading} columns={columns} dataSource={dataSource}  pagination={{ pageSize: 10 }}/>
+        <Table loading={loading} columns={columns} dataSource={filteredData}  pagination={{ pageSize: 5 }}/>
       </div>
     )
   );
