@@ -1,0 +1,110 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "key": "1",
+      "title": "Start of the year",
+      "type": "generic",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-01",
+      "description": "This is an event about the start of this year"
+    },
+    {
+      "id": "2",
+      "key": "2",
+      "title": "Mediagenix holiday",
+      "type": "holiday",
+      "startDate": "2022-04-04",
+      "endDate": "2022-04-05",
+      "description": "Celebrating Mediagenix"
+    },
+    {
+      "id": "3",
+      "key": "3",
+      "title": "Lorem ipsum",
+      "type": "generic",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-01",
+      "description": "This is some good lorem"
+    },
+    {
+      "id": "4",
+      "key": "4",
+      "title": "Some lorem",
+      "type": "holiday",
+      "startDate": "2022-04-04",
+      "endDate": "2022-04-05",
+      "description": "yes again, lorem is life"
+    },
+    {
+      "title": "title",
+      "type": "generic",
+      "startDate,endDate": [
+        "2023-01-16T13:39:28.149Z",
+        "2023-01-27T13:39:28.149Z"
+      ],
+      "description": "this is a description",
+      "id": "tP91tcN"
+    },
+    {
+      "title": "title",
+      "type": "generic",
+      "startDate,endDate": [
+        "2023-01-16T13:39:28.149Z",
+        "2023-01-27T13:39:28.149Z"
+      ],
+      "description": "this is a description",
+      "id": "7DQ6d0v"
+    },
+    {
+      "title": "",
+      "type": "generic",
+      "startDate,endDate": [
+        "2023-01-29T13:41:12.268Z",
+        "2023-02-27T13:41:12.268Z"
+      ],
+      "description": "this is a description",
+      "id": "fMQJIEI"
+    }
+  ],
+  "schema": [
+    {
+      "key": "1",
+      "name": "title",
+      "label": "Title",
+      "component": "text",
+      "required": true
+    },
+    {
+      "key": "2",
+      "name": "type",
+      "component": "select",
+      "label": "Type",
+      "options": [
+        {
+          "label": "Generic",
+          "value": "generic"
+        },
+        {
+          "label": "Holiday",
+          "value": "holiday"
+        }
+      ]
+    },
+    {
+      "key": "3",
+      "name": [
+        "startDate",
+        "endDate"
+      ],
+      "component": "range_picker",
+      "label": "Date"
+    },
+    {
+      "key": "4",
+      "name": "description",
+      "label": "Description",
+      "component": "textarea"
+    }
+  ]
+}
