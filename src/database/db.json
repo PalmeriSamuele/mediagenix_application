@@ -1,33 +1,6 @@
 {
   "data": [
     {
-      "id": "1",
-      "key": "1",
-      "title": "Start of the year",
-      "type": "generic",
-      "startDate": "2022-01-01",
-      "endDate": "2022-12-01",
-      "description": "This is an event about the start of this year"
-    },
-    {
-      "id": "2",
-      "key": "2",
-      "title": "Mediagenix holiday",
-      "type": "holiday",
-      "startDate": "2022-04-04",
-      "endDate": "2022-04-05",
-      "description": "Celebrating Mediagenix"
-    },
-    {
-      "id": "3",
-      "key": "3",
-      "title": "Lorem ipsum",
-      "type": "generic",
-      "startDate": "2022-01-01",
-      "endDate": "2022-12-01",
-      "description": "This is some good lorem"
-    },
-    {
       "id": "4",
       "key": "4",
       "title": "Some lorem",
@@ -37,49 +10,68 @@
       "description": "yes again, lorem is life"
     },
     {
-      "title": "title",
+      "title": "Temporibus quas adip",
       "type": "generic",
-      "startDate,endDate": [
-        "2023-01-16T13:39:28.149Z",
-        "2023-01-27T13:39:28.149Z"
-      ],
-      "description": "this is a description",
-      "id": "tP91tcN"
+      "startDate": "2023-01-24",
+      "endDate": "2023-02-20",
+      "description": "Blanditiis officiis ",
+      "id": "dU1_q90"
     },
     {
-      "title": "title",
+      "title": "Temporibus quas adip",
       "type": "generic",
-      "startDate,endDate": [
-        "2023-01-16T13:39:28.149Z",
-        "2023-01-27T13:39:28.149Z"
-      ],
-      "description": "this is a description",
-      "id": "7DQ6d0v"
+      "startDate": "2023-01-24",
+      "endDate": "2023-02-20",
+      "description": "Blanditiis officiis ",
+      "id": "LHmKqvl"
     },
     {
-      "title": "",
+      "title": "data",
       "type": "generic",
-      "startDate,endDate": [
-        "2023-01-29T13:41:12.268Z",
-        "2023-02-27T13:41:12.268Z"
-      ],
-      "description": "this is a description",
-      "id": "fMQJIEI"
+      "startDate": "2023-01-25",
+      "endDate": "2023-01-28",
+      "description": "Repellendus Error v",
+      "id": "_GqpOMk"
     },
     {
-      "title": "Aperiam nihil ad ame",
+      "title": "event",
       "type": "generic",
-      "startDate": "2023-01-04",
-      "endDate": "2023-01-06",
-      "description": "Dolor dolores verita",
-      "id": "389BUHz"
+      "startDate": "2023-01-31",
+      "endDate": "2023-02-07",
+      "description": "ttbtb",
+      "id": "bg5itb7"
     },
     {
+      "title": "event2",
+      "type": "holiday",
+      "startDate": "2023-01-25",
+      "endDate": "2023-01-26",
+      "description": "Laboris perferendis ",
+      "id": "OuCszJ1"
+    },
+    {
+      "title": "efcvs",
       "type": "generic",
-      "startDate": "2023-01-23",
-      "endDate": "2023-02-19",
-      "description": "",
-      "id": "tiNowgO"
+      "startDate": "2023-01-26",
+      "endDate": "2023-02-09",
+      "description": "vsdvdsvdv",
+      "id": "Vu3KW-C"
+    },
+    {
+      "title": "hello",
+      "type": "generic",
+      "startDate": "2023-01-27",
+      "endDate": "2023-02-21",
+      "description": "Blanditiis officiis ",
+      "id": "QKwnyYg"
+    },
+    {
+      "title": "event",
+      "type": "generic",
+      "startDate": "2023-01-27",
+      "endDate": "2023-02-21",
+      "description": "Blanditiis officiis ",
+      "id": "t1lZd-Q"
     }
   ],
   "schema": [

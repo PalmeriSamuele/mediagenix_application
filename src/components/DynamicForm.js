@@ -51,8 +51,10 @@ const DynamicForm = (props) => {
         }
         axios.post('http://localhost:3000/data', values)
         .then(response => {
-            alert('Saved !')
             console.log(response);
+            alert('Saved !')
+            // props.setdata({...props.data,...response.data});
+            // props.setfilter({...props.filter, ...response.data});
         })
         .catch(error => {
             console.log(error);
@@ -63,10 +65,10 @@ const DynamicForm = (props) => {
       
 
     return (
-        <Form onFinish={createEvent}>
+        <Form layout='vertical' onFinish={createEvent}>
             {
             schema.map((form)=> (
-              <FormItem {...form} />
+              <FormItem {...form}  />
             ))
 
             }

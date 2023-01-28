@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal } from 'antd';
 import DynamicForm from './DynamicForm';
 
-const CreateEvent = () => {
+const CreateEvent = (props) => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState('Content of the modal');
@@ -31,9 +31,9 @@ const CreateEvent = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <button className='createevent-btn rounded' style={{color: 'white', backgroundColor: 'rgba(0, 0, 0, 0.83)'}} onClick={showModal}>
         create event
-      </Button>
+      </button>
       <Modal
         title="Create a new event"
         open={open}
@@ -41,7 +41,7 @@ const CreateEvent = () => {
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
       >
-        <DynamicForm />
+      <DynamicForm setdata={props.setdata} setfilter={props.setfilter} data={props.data} filter={props.filter}/>
  
       </Modal>
     </>

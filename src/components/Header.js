@@ -5,7 +5,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <header className=' d-flex align-items-center justify-content-between bg-dark text-light'>
+        <header className=' d-flex align-items-center justify-content-between text-light'>
             <div className='header-container d-flex gap-3 align-items-center justify-content-start'>
                 <div className='burger-menu  d-flex align-items-center'>
                     <FontAwesomeIcon icon={faBurger} className='burger'/>

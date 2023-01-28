@@ -14,8 +14,8 @@ const FormItem = ({ component, label, required, name , options}) => {
       
     const Component = componentMapping[component];
     return (
-        <Form.Item label={label} name={name} required={required}  >
-            <Component options={options} placeholder={name+' ...'} format={dateFormat} />
+        <Form.Item label={label} name={name} required={Boolean(required)}  >
+            <Component required={Boolean(required)} options={options} placeholder={name+' ...'} format={dateFormat} style={{width: '100%'}}/>
         </Form.Item>
     );
 };
