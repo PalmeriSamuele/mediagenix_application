@@ -1,0 +1,42 @@
+a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header {
+  height: 8.5vh;
+  padding: 0 3rem;
+}
+
+header .burger-menu {
+  height: 100%;
+}
+
+header .logo-name {
+  font-weight: bold;
+  font-style: italic;
+  border-bottom: 3px solid rgba(100, 100, 100, 0);
+}
+
+header nav {
+  height: 100%;
+}
+
+header nav .nav-link {
+  font-style: italic;
+  font-size: 13px;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  border-bottom: 3px solid rgba(100, 100, 100, 0);
+}
+
+header nav .nav-link:hover {
+  color: orange;
+}
+
+header nav .nav-active {
+  color: orange;
+  border-bottom: 3px solid orange;
+}
+/*# sourceMappingURL=style.css.map */

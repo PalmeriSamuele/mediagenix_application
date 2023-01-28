@@ -2,6 +2,8 @@ import React , { useEffect, useState} from 'react';
 import axios from 'axios';
 import { Table, Input } from "antd";
 import CreateEvent from './components/CreateEvent';
+import Header from './components/Header';
+
 
 const { Search } = Input;
 
@@ -103,20 +105,24 @@ function App() {
     loading ? (
       'Loading'
     ) : (
-      <div className='container p-3 mb-3'>
-        <div className='d-flex justify-content-evenly'>
-          <Search
-            placeholder="input search text"
-            allowClear
-            style={{ width: 200 }}
-            // onSearch={{(e) => handleFilter(e)}}
-            onChange={(e) => handleFilter(e)}
-          />
-          <CreateEvent />
-        </div>
+      <section>
+        <Header />
+        <main className='container '>
+          <div className='d-flex justify-content-evenly'>
+            <Search
+              placeholder="input search text"
+              allowClear
+              style={{ width: 200 }}
+              // onSearch={{(e) => handleFilter(e)}}
+              onChange={(e) => handleFilter(e)}
+            />
+            <CreateEvent />
+            </div>
 
-        <Table loading={loading} columns={columns} dataSource={filteredData}  pagination={{ pageSize: 5 }}/>
-      </div>
+            <Table loading={loading} columns={columns} dataSource={filteredData}  pagination={{ pageSize: 5 }}/>
+          </main>
+      </section>
+
     )
   );
 }
