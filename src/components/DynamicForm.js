@@ -4,26 +4,9 @@ import FormItem from './FormItem';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const DynamicForm = (props) => {
-    const [schema, setSchema] = useState([]);
+   
     
-    useEffect(() => {
-        const url = 'http://localhost:3000/schema';
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const json = await response.json();
-               
-                setSchema(json);
-            
-            } catch (error) {
-                console.log("error", error);
-            }
-        };
-
-        fetchData();
-    }, []);
-    Date.prototype.getFullMonth = function() {
+    Date .prototype.getFullMonth = function() {
         const month = this.getMonth()+1
         return month < 10 ? '0'+month : month
     }
@@ -52,6 +35,7 @@ const DynamicForm = (props) => {
         axios.post('http://localhost:3000/data', values)
         .then(response => {
             console.log(response);
+            props.setcounter(props.counter+1);
             alert('Saved !')
             // props.setdata({...props.data,...response.data});
             // props.setfilter({...props.filter, ...response.data});
@@ -67,12 +51,12 @@ const DynamicForm = (props) => {
     return (
         <Form layout='vertical' onFinish={createEvent}>
             {
-            schema.map((form)=> (
+            props.schema.map((form)=> (
               <FormItem {...form}  />
             ))
 
             }
-            <Button htmlType='submit' type="primary" onClick={createEvent}>
+            <Button htmlType='submit' type='primary' onClick={createEvent}>
                 create
             </Button>
           

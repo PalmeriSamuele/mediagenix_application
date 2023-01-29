@@ -41,7 +41,7 @@ const CreateEvent = (props) => {
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
       >
-      <DynamicForm setdata={props.setdata} setfilter={props.setfilter} data={props.data} filter={props.filter}/>
+      <DynamicForm counter={props.counter} setcounter={props.setcounter} schema={props.schema}/>
  
       </Modal>
     </>
