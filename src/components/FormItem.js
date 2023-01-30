@@ -1,5 +1,8 @@
-import React , { useEffect, useState} from 'react';
-import { Form , Button, DatePicker , Input , Select } from "antd";
+/* 
+representing each input ant form item like select ect
+*/
+import React from 'react';
+import { Form, DatePicker , Input , Select } from "antd";
 
 const FormItem = ({ component, label, required, name , options}) => {
     const { RangePicker } = DatePicker;

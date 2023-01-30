@@ -1,7 +1,11 @@
-import React , { useEffect, useState} from 'react';
+/* 
+
+react component use for generating a dynamic form using ant design from a json file
+
+*/
+import React from 'react';
 import {Form, Button } from "antd";
 import FormItem from './FormItem';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const DynamicForm = (props) => {
    
@@ -10,7 +14,9 @@ const DynamicForm = (props) => {
         const month = this.getMonth()+1
         return month < 10 ? '0'+month : month
     }
-    Date.prototype.getFullDate = function(){  // if date single diget add a 0
+     // if date single diget add a 0
+    Date.prototype.getFullDate = function(){  
+       
         if (this.getDate() < 10) {
            return '0' + this.getDate();
         }/* w w w  .  j a  v a2 s. c  om*/
@@ -24,6 +30,7 @@ const DynamicForm = (props) => {
         let endDate_day = new Date(values.startDate['endDate'][1]).getFullDate()
         let endDate_month = new Date(values.startDate['endDate'][1]).getFullMonth()
         let endDate_year = new Date(values.startDate['endDate'][1]).getFullYear()
+        // manipulate the data that they can be use for the database
         values = {
             title: values.title,
             type: values.type,
@@ -34,8 +41,7 @@ const DynamicForm = (props) => {
         }
         axios.post('http://localhost:3000/data', values)
         .then(response => {
-            console.log(response);
-            props.setcounter(props.counter+1);
+            props.setcounter(props.counter+1); // event encoutner to make the database call and get the new data
             alert('Saved !')
             // props.setdata({...props.data,...response.data});
             // props.setfilter({...props.filter, ...response.data});

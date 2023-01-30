@@ -4,17 +4,15 @@ import { Table, Input } from "antd";
 import CreateEvent from './components/CreateEvent';
 import Header from './components/Header';
 import ConfigPlanning from './components/ConfigPlanning';
-import {DeleteOutlined} from '@ant-design/icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-import { Toast } from 'bootstrap';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const { Search } = Input;
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [dataSource, setDataSource] = useState([]);
-  const [filteredData, setFiltred] = useState([]);
   const [schema, setSchema] = useState([]);
   const [loading, setLoading] = useState(true);
   const [eventCounter, setEventCounter] = useState(0);
@@ -54,15 +52,14 @@ function App() {
       render: (_, record) => {
         return (
           <>
-            <DeleteOutlined
-              id= "liveToastBtn"
+            
+            <FontAwesomeIcon icon={faXmark} 
               onClick={() => {
-         
+
                 // we trigger the delete function  
                 deleteEvent(record.id);
               }}
-              style={{ color: "red", fontSize: "15px" }}
-            />
+              style={{ fontSize: "15px", cursor:'pointer' }}/>
  
           </>
   
@@ -96,7 +93,6 @@ function App() {
           }));        
           
           setDataSource(data);
-          setFiltred(data);
       } catch (err) {
           console.error(err);
       } finally {
@@ -133,7 +129,6 @@ function App() {
     .then(response => {
       setEventCounter(eventCounter+1);
       alert('Event correctement supprimé !');
-      console.log(response);
     })
     .catch(error => {
       console.log(error);
@@ -141,32 +136,11 @@ function App() {
 
   }
 
-// search function , take the input value trought the event and filter the data using  fitler and includes
+  // set the value of the input to the setter, that it can be use to filter the data, when we use dataBase to do the Table
   const searchFunction = (e) => {
     let searchInput = e;
-    setSearchInput(searchInput); //  set the value of the search in the setter searchInput 
-    const newFilter = dataSource.filter((value) => {
-      if (value.title && searchInput && typeof value.title === "string" && typeof searchInput === "string") {
-          return value.title.toLowerCase().includes(searchInput.toLowerCase());
-      }
-      return false;
-    });
-    // if the searchbar is empty we set all the data, else we do the search with the filtered data
-    if (searchInput === "") {
-      setFiltred(dataSource);
-    } else {
-      setFiltred(newFilter);
-    }
-  };
-
-  // we check if the search bar is empty
-  const checkNoSearch = (e) => {
-    if(e.target.value === ''){
-      setSearchInput('')
-    }
-
+    searchInput == '' ? setSearchInput('') : setSearchInput(searchInput);
   }
-
 
   return (
     loading ? (
@@ -177,18 +151,12 @@ function App() {
         <ConfigPlanning />
         <main className='container '>
           <div className='d-flex justify-content-between p-3'>
-            {/* <Search
-              placeholder="input search text"
-              allowClear
-              style={{ width: 200 }}
-              // onSearch={{(e) => handleFilter(e)}}
-              onChange={(e) => searchFunction(e)}
-            /> */}
+
             <Search 
             className='enterButton'
-            placeholder="input search text" 
+            placeholder="Tape a title or a description..." 
             onSearch={(e) => searchFunction(e)}
-            onChange={(e) => checkNoSearch(e)}
+            onChange={(e) => searchFunction(e)}
             enterButton
             allowClear
             style={{ width: '25%' }} />
@@ -199,12 +167,17 @@ function App() {
             <Table loading={loading} columns={columns} 
             dataSource= { 
               dataSource.filter((value) => {
-              if (value.title && searchInput && typeof value.title === "string" && typeof searchInput === "string") {
-                  return value.title.toLowerCase().includes(searchInput.toLowerCase());
-              }
-              return value;
+                let toSearch = value.title;
+                if (value.title && value.description ){
+                  toSearch =  value.title+value.description;
+                }
+              
+                if (toSearch && searchInput && typeof value.title === "string" && typeof searchInput === "string") {
+                    return toSearch.toLowerCase().includes(searchInput.toLowerCase())
+                }
+                return value;
             })}  
-            pagination={{ pageSize: 4 }} />
+            pagination={{ pageSize: 5 }} />
 
   
           </main>

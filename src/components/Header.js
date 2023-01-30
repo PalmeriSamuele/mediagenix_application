@@ -1,14 +1,14 @@
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faBurger, faEarthEurope, faGear, faShare } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBurger, faEarthEurope, faGear, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const Header = () => {
     return (
         <header className=' d-flex align-items-center justify-content-between text-light'>
-            <div className='header-container d-flex gap-3 align-items-center justify-content-start'>
+            <div className='header-container d-flex  align-items-center justify-content-start'>
                 <div className='burger-menu  d-flex align-items-center'>
-                    <FontAwesomeIcon icon={faBurger} className='burger'/>
+                    <FontAwesomeIcon icon={faBars} className='burger'/>
                     
                 </div>
                 <h1 className='logo-name fs-4 d-flex align-self-center  justify-content-center m-0'>WHATS'ON</h1>
